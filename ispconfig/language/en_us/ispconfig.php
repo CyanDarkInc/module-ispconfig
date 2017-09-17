@@ -1,6 +1,6 @@
 <?php
 /**
- * en_us language for the ispconfig module
+ * en_us language for the ispconfig module.
  */
 // Basics
 $lang['Ispconfig.name'] = 'ISPConfig';
@@ -32,7 +32,6 @@ $lang['Ispconfig.manage.module_rows.confirm_delete'] = 'Are you sure you want to
 $lang['Ispconfig.manage.module_groups.confirm_delete'] = 'Are you sure you want to delete this server group?';
 $lang['Ispconfig.manage.module_rows_no_results'] = 'There are no servers.';
 $lang['Ispconfig.manage.module_groups_no_results'] = 'There are no server groups.';
-
 
 $lang['Ispconfig.order_options.first'] = 'First Non-full Server';
 $lang['Ispconfig.order_options.roundrobin'] = 'Evenly Distribute Among Servers';
@@ -90,12 +89,10 @@ $lang['Ispconfig.tab_stats.info.limit_web_aliasdomain'] = 'Alias Domain Limit';
 $lang['Ispconfig.tab_stats.info.limit_webdav_user'] = 'WebDAV Users Limit';
 $lang['Ispconfig.tab_stats.info.limit_database'] = 'Databases Limit';
 
-
 // Client actions
 $lang['Ispconfig.tab_client_actions.change_password'] = 'Change Password';
 $lang['Ispconfig.tab_client_actions.field_ispconfig_password'] = 'Password';
 $lang['Ispconfig.tab_client_actions.field_password_submit'] = 'Update Password';
-
 
 // Client Service management
 $lang['Ispconfig.tab_client_stats.info_title'] = 'Information';
@@ -114,7 +111,6 @@ $lang['Ispconfig.tab_client_stats.disk_title'] = 'Disk Usage';
 $lang['Ispconfig.tab_client_stats.usage'] = '(%1$s MB/%2$s MB)'; // %1$s is the amount of resource usage, %2$s is the resource usage limit
 $lang['Ispconfig.tab_client_stats.usage_unlimited'] = '(%1$s MB/∞)'; // %1$s is the amount of resource usage
 
-
 // Service info
 $lang['Ispconfig.service_info.username'] = 'Username';
 $lang['Ispconfig.service_info.password'] = 'Password';
@@ -122,11 +118,9 @@ $lang['Ispconfig.service_info.server'] = 'Server';
 $lang['Ispconfig.service_info.options'] = 'Options';
 $lang['Ispconfig.service_info.option_login'] = 'Log in';
 
-
 // Tooltips
 $lang['Ispconfig.service_field.tooltip.username'] = 'You may leave the username blank to automatically generate one.';
 $lang['Ispconfig.service_field.tooltip.password'] = 'You may leave the password blank to automatically generate one.';
-
 
 // Errors
 $lang['Ispconfig.!error.server_name_valid'] = 'You must enter a Server Label.';

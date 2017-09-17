@@ -1,6 +1,6 @@
 <?php
 /**
- * Ispconfig Module
+ * Ispconfig Module.
  *
  * @package blesta
  * @subpackage blesta.components.modules.ispconfig
@@ -20,7 +20,7 @@ class Ispconfig extends Module
     private static $authors = [['name'=>'Phillips Data, Inc.', 'url'=>'http://www.blesta.com']];
 
     /**
-     * Initializes the module
+     * Initializes the module.
      */
     public function __construct()
     {
@@ -32,7 +32,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns the name of this module
+     * Returns the name of this module.
      *
      * @return string The common name of this module
      */
@@ -42,7 +42,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns the version of this module
+     * Returns the version of this module.
      *
      * @return string The current version of this gateway
      */
@@ -52,7 +52,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns the name and url of the authors of this module
+     * Returns the name and url of the authors of this module.
      *
      * @return array The name and url of the authors of this module
      */
@@ -63,7 +63,7 @@ class Ispconfig extends Module
 
     /**
      * Returns all tabs to display to an admin when managing a service whose
-     * package uses this module
+     * package uses this module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @return array An array of tabs in the format of method => title.
@@ -78,7 +78,7 @@ class Ispconfig extends Module
 
     /**
      * Returns all tabs to display to a client when managing a service whose
-     * package uses this module
+     * package uses this module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @return array An array of tabs in the format of method => title.
@@ -93,7 +93,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns a noun used to refer to a module row (e.g. "Server")
+     * Returns a noun used to refer to a module row (e.g. "Server").
      *
      * @return string The noun used to refer to a module row
      */
@@ -103,7 +103,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns a noun used to refer to a module row in plural form (e.g. "Servers", "VPSs", "Reseller Accounts", etc.)
+     * Returns a noun used to refer to a module row in plural form (e.g. "Servers", "VPSs", "Reseller Accounts", etc.).
      *
      * @return string The noun used to refer to a module row in plural form
      */
@@ -113,7 +113,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns a noun used to refer to a module group (e.g. "Server Group")
+     * Returns a noun used to refer to a module group (e.g. "Server Group").
      *
      * @return string The noun used to refer to a module group
      */
@@ -206,7 +206,7 @@ class Ispconfig extends Module
         // Set the PHP options as a multiple selectable option
         if (!empty($php_options)) {
             $php = $fields->label(Language::_('Ispconfig.package_fields.php_options', true), 'ispconfig_php_options');
-            
+
             foreach ($php_options as $key => $value) {
                 $php->attach(
                     $fields->fieldCheckbox('meta[php_options][' . $key . ']', $key, $this->Html->ifSet($vars->meta['php_options'][$key]), null, $fields->label($value))
@@ -219,7 +219,7 @@ class Ispconfig extends Module
         // Set the SSH options as a multiple selectable option
         if (!empty($ssh_options)) {
             $ssh = $fields->label(Language::_('Ispconfig.package_fields.ssh_options', true), 'ispconfig_ssh_options');
-            
+
             foreach ($ssh_options as $key => $value) {
                 $ssh->attach(
                     $fields->fieldCheckbox('meta[ssh_options][' . $key . ']', $key, $this->Html->ifSet($vars->meta['ssh_options'][$key]), null, $fields->label($value))
@@ -287,6 +287,7 @@ class Ispconfig extends Module
                 ];
             }
         }
+
         return $meta;
     }
 
@@ -322,11 +323,12 @@ class Ispconfig extends Module
                 ];
             }
         }
+
         return $meta;
     }
 
     /**
-     * Returns the rendered view of the manage module page
+     * Returns the rendered view of the manage module page.
      *
      * @param mixed $module A stdClass object representing the module and its rows
      * @param array $vars An array of post data submitted to or on the manager module
@@ -349,7 +351,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns the rendered view of the add module row page
+     * Returns the rendered view of the add module row page.
      *
      * @param array $vars An array of post data submitted to or on the add module
      *  row page (used to repopulate fields after an error)
@@ -372,12 +374,13 @@ class Ispconfig extends Module
             }
         }
 
-        $this->view->set('vars', (object)$vars);
+        $this->view->set('vars', (object) $vars);
+
         return $this->view->fetch();
     }
 
     /**
-     * Returns the rendered view of the edit module row page
+     * Returns the rendered view of the edit module row page.
      *
      * @param stdClass $module_row The stdClass representation of the existing module row
      * @param array $vars An array of post data submitted to or on the edit
@@ -403,14 +406,15 @@ class Ispconfig extends Module
             }
         }
 
-        $this->view->set('vars', (object)$vars);
+        $this->view->set('vars', (object) $vars);
+
         return $this->view->fetch();
     }
 
     /**
      * Adds the module row on the remote server. Sets Input errors on failure,
      * preventing the row from being added. Returns a set of data, which may be
-     * a subset of $vars, that is stored for this module row
+     * a subset of $vars, that is stored for this module row.
      *
      * @param array $vars An array of module info to add
      * @return array A numerically indexed array of meta fields for the module row containing:
@@ -452,7 +456,7 @@ class Ispconfig extends Module
     /**
      * Edits the module row on the remote server. Sets Input errors on failure,
      * preventing the row from being updated. Returns a set of data, which may be
-     * a subset of $vars, that is stored for this module row
+     * a subset of $vars, that is stored for this module row.
      *
      * @param stdClass $module_row The stdClass representation of the existing module row
      * @param array $vars An array of module info to update
@@ -504,7 +508,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns the value used to identify a particular service
+     * Returns the value used to identify a particular service.
      *
      * @param stdClass $service A stdClass object representing the service
      * @return string A value used to identify this service amongst other similar services
@@ -516,13 +520,14 @@ class Ispconfig extends Module
                 return $field->value;
             }
         }
+
         return null;
     }
 
     /**
      * Returns the value used to identify a particular package service which has
      * not yet been made into a service. This may be used to uniquely identify
-     * an uncreated services of the same package (i.e. in an order form checkout)
+     * an uncreated services of the same package (i.e. in an order form checkout).
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @param array $vars An array of user supplied info to satisfy the request
@@ -534,11 +539,12 @@ class Ispconfig extends Module
         if (isset($vars['ispconfig_domain'])) {
             return $vars['ispconfig_domain'];
         }
+
         return null;
     }
 
     /**
-     * Returns all fields to display to an admin attempting to add a service with the module
+     * Returns all fields to display to an admin attempting to add a service with the module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @param $vars stdClass A stdClass object representing a set of post fields
@@ -591,7 +597,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns all fields to display to a client attempting to add a service with the module
+     * Returns all fields to display to a client attempting to add a service with the module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @param $vars stdClass A stdClass object representing a set of post fields
@@ -621,7 +627,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Returns all fields to display to an admin attempting to edit a service with the module
+     * Returns all fields to display to an admin attempting to edit a service with the module.
      *
      * @param stdClass $package A stdClass object representing the selected package
      * @param $vars stdClass A stdClass object representing a set of post fields
@@ -725,6 +731,7 @@ class Ispconfig extends Module
         }
 
         $this->Input->setRules($rules);
+
         return $this->Input->validates($vars);
     }
 
@@ -751,13 +758,15 @@ class Ispconfig extends Module
      * @see Module::getModule()
      * @see Module::getModuleRow()
      */
-    public function addService($package, array $vars = null, $parent_package = null, $parent_service = null, $status = 'pending') {
+    public function addService($package, array $vars = null, $parent_package = null, $parent_service = null, $status = 'pending')
+    {
         $row = $this->getModuleRow();
 
         if (!$row) {
             $this->Input->setErrors(
                 ['module_row' => ['missing' => Language::_('Ispconfig.!error.module_row.missing', true)]]
             );
+
             return;
         }
 
@@ -790,7 +799,7 @@ class Ispconfig extends Module
             }
         }
 
-        $params = $this->getFieldsFromInput((array)$vars, $package);
+        $params = $this->getFieldsFromInput((array) $vars, $package);
 
         $this->validateService($package, $vars);
 
@@ -990,7 +999,7 @@ class Ispconfig extends Module
             // Delete ISPConfig client account
             $this->log($row->meta->host_name . '|client_delete_everything', serialize($service_fields->ispconfig_username), 'input', true);
             $this->parseResponse($api->deleteClient($client_id));
-            
+
             // Update the number of accounts on the server
             $this->updateAccountCount($row);
         }
@@ -1017,7 +1026,8 @@ class Ispconfig extends Module
      * @see Module::getModule()
      * @see Module::getModuleRow()
      */
-    public function changeServicePackage($package_from, $package_to, $service, $parent_package = null, $parent_service = null) {
+    public function changeServicePackage($package_from, $package_to, $service, $parent_package = null, $parent_service = null)
+    {
         if (($row = $this->getModuleRow())) {
             $api = $this->getApi($row->meta->host_name, $row->meta->user_name, $row->meta->password, $row->meta->use_ssl);
 
@@ -1094,7 +1104,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Statistics tab (bandwidth/disk usage)
+     * Statistics tab (bandwidth/disk usage).
      *
      * @param stdClass $package A stdClass object representing the current package
      * @param stdClass $service A stdClass object representing the current service
@@ -1115,11 +1125,12 @@ class Ispconfig extends Module
         $this->view->set('stats', $stats);
 
         $this->view->setDefaultView('components' . DS . 'modules' . DS . 'ispconfig' . DS);
+
         return $this->view->fetch();
     }
 
     /**
-     * Client Statistics tab (bandwidth/disk usage)
+     * Client Statistics tab (bandwidth/disk usage).
      *
      * @param stdClass $package A stdClass object representing the current package
      * @param stdClass $service A stdClass object representing the current service
@@ -1141,11 +1152,12 @@ class Ispconfig extends Module
         $this->view->set('user_type', $package->meta->type);
 
         $this->view->setDefaultView('components' . DS . 'modules' . DS . 'ispconfig' . DS);
+
         return $this->view->fetch();
     }
 
     /**
-     * Fetches all account stats
+     * Fetches all account stats.
      *
      * @param stdClass $package A stdClass object representing the current package
      * @param stdClass $service A stdClass object representing the current service
@@ -1165,12 +1177,12 @@ class Ispconfig extends Module
         // Fetch account info
         $this->log($row->meta->host_name . '|client_get', serialize($service_fields->ispconfig_username), 'input', true);
         $stats->account_info = $this->parseResponse($api->getClient($client_id));
-        
+
         return $stats;
     }
 
     /**
-     * Client Actions (reset password)
+     * Client Actions (reset password).
      *
      * @param stdClass $package A stdClass object representing the current package
      * @param stdClass $service A stdClass object representing the current service
@@ -1195,7 +1207,7 @@ class Ispconfig extends Module
             $data = array_merge((array) $service_fields, [
                 'ispconfig_password' => $this->Html->ifSet($post['ispconfig_password'])
             ]);
-            
+
             $this->Services->edit($service->id, $data);
 
             if ($this->Services->errors()) {
@@ -1215,7 +1227,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Validates that the given hostname is valid
+     * Validates that the given hostname is valid.
      *
      * @param string $host_name The host name to validate
      * @return bool True if the hostname is valid, false otherwise
@@ -1233,7 +1245,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Validates that at least 2 name servers are set in the given array of name servers
+     * Validates that at least 2 name servers are set in the given array of name servers.
      *
      * @param array $name_servers An array of name servers
      * @return bool True if the array count is >= 2, false otherwise
@@ -1243,11 +1255,12 @@ class Ispconfig extends Module
         if (is_array($name_servers) && count($name_servers) >= 2) {
             return true;
         }
+
         return false;
     }
 
     /**
-     * Validates that the nameservers given are formatted correctly
+     * Validates that the nameservers given are formatted correctly.
      *
      * @param array $name_servers An array of name servers
      * @return bool True if every name server is formatted correctly, false otherwise
@@ -1261,11 +1274,12 @@ class Ispconfig extends Module
                 }
             }
         }
+
         return true;
     }
 
     /**
-     * Retrieves the accounts on the server
+     * Retrieves the accounts on the server.
      *
      * @param stdClass $api The ISPConfig API
      * @return mixed The number of ISPConfig accounts on the server, or false on error
@@ -1288,7 +1302,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Updates the module row meta number of accounts
+     * Updates the module row meta number of accounts.
      *
      * @param stdClass $module_row A stdClass object representing a single server
      */
@@ -1309,7 +1323,7 @@ class Ispconfig extends Module
 
             if ($vars) {
                 $vars->account_count = $count;
-                $vars = (array)$vars;
+                $vars = (array) $vars;
 
                 $this->ModuleManager->editRow($module_row->id, $vars);
             }
@@ -1318,8 +1332,12 @@ class Ispconfig extends Module
 
     /**
      * Validates whether or not the connection details are valid by attempting to fetch
-     * the number of accounts that currently reside on the server
+     * the number of accounts that currently reside on the server.
      *
+     * @param mixed $password
+     * @param mixed $hostname
+     * @param mixed $username
+     * @param mixed $use_ssl
      * @return bool True if the connection is valid, false otherwise
      */
     public function validateConnection($password, $hostname, $username, $use_ssl, &$account_count)
@@ -1341,7 +1359,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Generates a username from the given host name
+     * Generates a username from the given host name.
      *
      * @param string $host_name The host name to use to generate the username
      * @return string The username generated from the given hostname
@@ -1357,8 +1375,8 @@ class Ispconfig extends Module
         $pool_size = strlen($pool);
 
         if ($length < 5) {
-            for ($i=$length; $i<8; $i++) {
-                $username .= substr($pool, mt_rand(0, $pool_size-1), 1);
+            for ($i=$length; $i < 8; $i++) {
+                $username .= substr($pool, mt_rand(0, $pool_size - 1), 1);
             }
             $length = strlen($username);
         }
@@ -1367,14 +1385,14 @@ class Ispconfig extends Module
 
         // Check for an existing user account
         $row = $this->getModuleRow();
-        
+
         if ($row) {
             $api = $this->getApi($row->meta->host_name, $row->meta->user_name, $row->meta->password, $row->meta->use_ssl);
         }
 
         // Username exists, create another instead
         if ((bool) $api->getClientIdByUsername($username)) {
-            for ($i=0; $i<(int)str_repeat(9, $account_matching_characters); $i++) {
+            for ($i=0; $i < (int) str_repeat(9, $account_matching_characters); $i++) {
                 $new_username = substr($username, 0, -$account_matching_characters) . $i;
                 if (!array_key_exists($new_username, $accounts)) {
                     $username = $new_username;
@@ -1382,12 +1400,12 @@ class Ispconfig extends Module
                 }
             }
         }
-        
+
         return $username;
     }
 
     /**
-     * Generates a password
+     * Generates a password.
      *
      * @param int $min_length The minimum character length for the password (5 or larger)
      * @param int $max_length The maximum character length for the password (14 or fewer)
@@ -1400,15 +1418,15 @@ class Ispconfig extends Module
         $length = mt_rand(max($min_length, 5), min($max_length, 14));
         $password = '';
 
-        for ($i=0; $i<$length; $i++) {
-            $password .= substr($pool, mt_rand(0, $pool_size-1), 1);
+        for ($i=0; $i < $length; $i++) {
+            $password .= substr($pool, mt_rand(0, $pool_size - 1), 1);
         }
 
         return $password;
     }
 
     /**
-     * Returns an array of service field to set for the service using the given input
+     * Returns an array of service field to set for the service using the given input.
      *
      * @param array $vars An array of key/value input pairs
      * @param stdClass $package A stdClass object representing the package for the service
@@ -1418,7 +1436,7 @@ class Ispconfig extends Module
     {
         $fields = [
             'contact_name' => isset($vars['ispconfig_name']) ? $vars['ispconfig_name'] : null,
-            'username' => isset($vars['ispconfig_username']) ? $vars['ispconfig_username']: null,
+            'username' => isset($vars['ispconfig_username']) ? $vars['ispconfig_username'] : null,
             'password' => isset($vars['ispconfig_password']) ? $vars['ispconfig_password'] : null,
             'email' => isset($vars['ispconfig_email']) ? $vars['ispconfig_email'] : null,
             'company_name' => isset($vars['ispconfig_company']) ? $vars['ispconfig_company'] : null,
@@ -1436,7 +1454,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Parses the response from the API into a stdClass object
+     * Parses the response from the API into a stdClass object.
      *
      * @param string $response The response from the API
      * @return stdClass A stdClass object representing the response, void if the response was an error
@@ -1471,11 +1489,12 @@ class Ispconfig extends Module
     }
 
     /**
-     * Initializes the IspconfigApi and returns an instance of that object
+     * Initializes the IspconfigApi and returns an instance of that object.
      *
      * @param string $hostname The host to the ISPConfig server
      * @param string $username The remote username
      * @param string $password The remote password
+     * @param mixed $use_ssl
      * @return IspconfigApi The IspconfigApi instance
      */
     private function getApi($hostname, $username, $password, $use_ssl = true)
@@ -1488,7 +1507,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Fetches a listing of all packages configured in ISPConfig for the given server
+     * Fetches a listing of all packages configured in ISPConfig for the given server.
      *
      * @param stdClass $module_row A stdClass object representing a single server
      * @return array An array of packages in key/value pair
@@ -1519,10 +1538,10 @@ class Ispconfig extends Module
         }
 
         return $packages;
-    }    
+    }
 
     /**
-     * Fetches a listing of all php options available in ISPConfig for the given server
+     * Fetches a listing of all php options available in ISPConfig for the given server.
      *
      * @param stdClass $module_row A stdClass object representing a single server
      * @return array An array of packages in key/value pair
@@ -1556,7 +1575,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Fetches a listing of all ssh options available in ISPConfig for the given server
+     * Fetches a listing of all ssh options available in ISPConfig for the given server.
      *
      * @param stdClass $module_row A stdClass object representing a single server
      * @return array An array of packages in key/value pair
@@ -1590,7 +1609,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Builds and returns the rules required to add/edit a module row (e.g. server)
+     * Builds and returns the rules required to add/edit a module row (e.g. server).
      *
      * @param array $vars An array of key/value data pairs
      * @return array An array of Input rules suitable for Input::setRules()
@@ -1658,7 +1677,7 @@ class Ispconfig extends Module
     }
 
     /**
-     * Builds and returns rules required to be validated when adding/editing a package
+     * Builds and returns rules required to be validated when adding/editing a package.
      *
      * @param array $vars An array of key/value data pairs
      * @return array An array of Input rules suitable for Input::setRules()
