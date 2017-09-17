@@ -37,7 +37,7 @@ class IspconfigApi
 
     /**
      * Initializes the class.
-     * 
+     *
      * @param mixed $hostname The ISPConfig hostname or IP Address
      * @param mixed $username The remote username
      * @param mixed $password The remote password
@@ -79,7 +79,7 @@ class IspconfigApi
 
         try {
             // Login to the remote server
-            if($this->session_id = $client->login($this->username, $this->password)) {
+            if ($this->session_id = $client->login($this->username, $this->password)) {
                 return call_user_func_array([$client, $function], array_merge([$this->session_id], $params));
             }
         } catch (SoapFault $e) {
@@ -178,7 +178,7 @@ class IspconfigApi
 
     /**
      * Deletes an existing client in the server.
-     * 
+     *
      * @param int $client_id The client id
      * @return bool True if the user has been deleted succesfully, false otherwise
      */
@@ -189,7 +189,7 @@ class IspconfigApi
 
     /**
      * Gets an existing client in the server.
-     * 
+     *
      * @param int $client_id The client id
      * @return array An array containing all the client information
      */
@@ -200,7 +200,7 @@ class IspconfigApi
 
     /**
      * Get all the existing clients in the server.
-     * 
+     *
      * @return array An array containing all the clients
      */
     public function getAllClients()
@@ -210,7 +210,7 @@ class IspconfigApi
 
     /**
      * Updates the information of an existing client.
-     * 
+     *
      * @param int $client_id The client id
      * @param array $params An array contaning the following arguments:
      *  - contact_name: Specifies the client name.
@@ -240,7 +240,7 @@ class IspconfigApi
 
     /**
      * Updates the password of an existing client.
-     * 
+     *
      * @param int $client_id The client id
      * @param string $password The new client password
      * @param int $reseller_id Specifies the reseller id for this account
@@ -255,7 +255,7 @@ class IspconfigApi
 
     /**
      * Get the client ID by the username.
-     * 
+     *
      * @param string $client_username The client username
      * @return int The client id
      */
@@ -268,7 +268,7 @@ class IspconfigApi
 
     /**
      * Get all the available PHP options.
-     * 
+     *
      * @return array An array containing the available PHP options
      */
     public function getPhpOptions()
@@ -286,7 +286,7 @@ class IspconfigApi
 
     /**
      * Get all the available SSH options.
-     * 
+     *
      * @return array An array containing the available SSH options
      */
     public function getSshOptions()
@@ -300,7 +300,7 @@ class IspconfigApi
 
     /**
      * Get all the client templates.
-     * 
+     *
      * @param string $type The type of the client templates, can be "main" (a.k.a packages), "addon" and "all"
      * @return array An array contaning all the requested client templates
      */
@@ -320,7 +320,7 @@ class IspconfigApi
 
     /**
      * Get the actual server ID.
-     * 
+     *
      * @return int The actual server id
      */
     public function getCurrentServerId()
@@ -334,12 +334,13 @@ class IspconfigApi
 
     /**
      * Adds a site to a client account.
-     * 
+     *
      * @param int $client_id The client id
      * @param string $domain The site domain
      * @return bool True if the site has been added succesfully, false otherwise
      */
-    public function addSite($client_id, $domain) {
+    public function addSite($client_id, $domain)
+    {
         $client = $this->getClient($client_id);
 
         return (bool) $this->apiRequest('sites_web_domain_add', [$client_id, [
