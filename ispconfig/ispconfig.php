@@ -252,7 +252,7 @@ class Ispconfig extends Module
         return [
             'module' => ['host_name', 'name_servers'],
             'package' => ['package'],
-            'service' => ['ispconfig_username', 'ispconfig_password']
+            'service' => ['ispconfig_domain', 'ispconfig_username', 'ispconfig_password']
         ];
     }
 
